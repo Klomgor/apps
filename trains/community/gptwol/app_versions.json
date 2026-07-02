@@ -1,33 +1,30 @@
 {
-    "1.0.24": {
+    "1.0.0": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/__w/apps/apps/trains/community/oikos/1.0.24",
-        "last_update": "2026-07-02 16:08:41",
+        "location": "/__w/apps/apps/trains/community/gptwol/1.0.0",
+        "last_update": "2026-07-02 15:46:35",
         "required_features": [],
-        "human_version": "0.83.1_1.0.24",
-        "version": "1.0.24",
+        "human_version": "7.1.5_1.0.0",
+        "version": "1.0.0",
         "app_metadata": {
-            "app_version": "0.83.1",
+            "app_version": "7.1.5",
             "capabilities": [],
             "categories": [
-                "productivity"
+                "networking"
             ],
-            "changelog_url": "https://github.com/ulsklyc/oikos/blob/main/CHANGELOG.md",
-            "date_added": "2026-06-04",
-            "description": "Oikos is a self-hosted, privacy-focused family planner with calendar, tasks, shopping lists, meal planning, notes, contacts and budgeting.",
-            "home": "https://github.com/ulsklyc/oikos",
+            "changelog_url": "https://github.com/Misterbabou/gptwol/releases",
+            "date_added": "2026-07-02",
+            "description": "Simple Wake/Sleep On LAN Docker GUI",
+            "home": "https://github.com/Misterbabou/gptwol",
             "host_mounts": [],
-            "icon": "https://media.sys.truenas.net/apps/oikos/icons/icon.png",
+            "icon": "https://media.sys.truenas.net/apps/gptwol/icons/icon.png",
             "keywords": [
-                "family",
-                "planner",
-                "calendar",
-                "productivity"
+                "wol"
             ],
-            "lib_version": "2.3.6",
-            "lib_version_hash": "5067fd69a830797f96075fe2fe08aa41e2ec08d7c94cf5c6d6256690be7e06ae",
+            "lib_version": "2.3.8",
+            "lib_version_hash": "cd75c897a1e8fef54b5bd00d0d8849f240bc50db2ef650eccc0ee74f3b2b2dc1",
             "maintainers": [
                 {
                     "email": "dev@truenas.com",
@@ -35,63 +32,57 @@
                     "url": "https://www.truenas.com/"
                 }
             ],
-            "name": "oikos",
+            "name": "gptwol",
             "run_as_context": [
                 {
-                    "description": "Container [oikos] can run as any non-root user and group.",
+                    "description": "Container [gptwol] can run as any non-root user and group.",
                     "gid": 568,
                     "group_name": "Host group is [apps]",
                     "uid": 568,
                     "user_name": "Host user is [apps]"
                 }
             ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot2.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot3.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot4.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot5.png"
-            ],
+            "screenshots": [],
             "sources": [
-                "https://apps.truenas.com/catalog/oikos_community/",
-                "https://github.com/ulsklyc/oikos",
-                "https://github.com/ulsklyc/oikos/pkgs/container/oikos"
+                "https://apps.truenas.com/catalog/gptwol_community/",
+                "https://github.com/Misterbabou/gptwol",
+                "https://hub.docker.com/r/misterbabou/gptwol"
             ],
-            "title": "Oikos (Deprecated)",
+            "title": "GPTWOL",
             "train": "community",
-            "version": "1.0.24"
+            "version": "1.0.0"
         },
         "schema": {
             "groups": [
                 {
-                    "name": "Oikos Configuration",
-                    "description": "Configure Oikos"
+                    "name": "GPTWOL Configuration",
+                    "description": "Configure GPTWOL"
                 },
                 {
                     "name": "User and Group Configuration",
-                    "description": "Configure User and Group for Oikos"
+                    "description": "Configure User and Group for GPTWOL"
                 },
                 {
                     "name": "Network Configuration",
-                    "description": "Configure Network for Oikos"
+                    "description": "Configure Network for GPTWOL"
                 },
                 {
                     "name": "Storage Configuration",
-                    "description": "Configure Storage for Oikos"
+                    "description": "Configure Storage for GPTWOL"
                 },
                 {
                     "name": "Labels Configuration",
-                    "description": "Configure Labels for Oikos"
+                    "description": "Configure Labels for GPTWOL"
                 },
                 {
                     "name": "Resources Configuration",
-                    "description": "Configure Resources for Oikos"
+                    "description": "Configure Resources for GPTWOL"
                 }
             ],
             "questions": [
                 {
                     "variable": "TZ",
-                    "group": "Oikos Configuration",
+                    "group": "GPTWOL Configuration",
                     "label": "Timezone",
                     "schema": {
                         "type": "string",
@@ -103,37 +94,15 @@
                     }
                 },
                 {
-                    "variable": "oikos",
+                    "variable": "gptwol",
                     "label": "",
-                    "group": "Oikos Configuration",
+                    "group": "GPTWOL Configuration",
                     "schema": {
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "session_secret",
-                                "label": "Session Secret",
-                                "description": "A long random string used to sign session cookies.</br>\nGenerate one with: openssl rand -base64 48\n",
-                                "schema": {
-                                    "type": "string",
-                                    "required": true,
-                                    "private": true,
-                                    "min_length": 16
-                                }
-                            },
-                            {
-                                "variable": "db_encryption_key",
-                                "label": "Database Encryption Key (Optional)",
-                                "description": "Optional SQLCipher key that encrypts the database at rest.</br>\nLeave empty to store the database unencrypted.</br>\nWARNING: Store this key permanently. It cannot be recovered, it cannot\nbe changed on an existing database, and losing it means losing access\nto your data.\n",
-                                "schema": {
-                                    "type": "string",
-                                    "default": "",
-                                    "private": true
-                                }
-                            },
-                            {
                                 "variable": "additional_envs",
                                 "label": "Additional Environment Variables",
-                                "description": "See https://github.com/ulsklyc/oikos/blob/main/docs/installation.md#environment-variables for available environment variables.",
                                 "schema": {
                                     "type": "list",
                                     "default": [],
@@ -178,7 +147,7 @@
                             {
                                 "variable": "user",
                                 "label": "User ID",
-                                "description": "The user id that Oikos files will be owned by.",
+                                "description": "The user id that GPTWOL files will be owned by.",
                                 "schema": {
                                     "type": "int",
                                     "min": 568,
@@ -189,7 +158,7 @@
                             {
                                 "variable": "group",
                                 "label": "Group ID",
-                                "description": "The group id that Oikos files will be owned by.",
+                                "description": "The group id that GPTWOL files will be owned by.",
                                 "schema": {
                                     "type": "int",
                                     "min": 568,
@@ -241,7 +210,7 @@
                                             "label": "Port Number",
                                             "schema": {
                                                 "type": "int",
-                                                "default": 30437,
+                                                "default": 30445,
                                                 "min": 1,
                                                 "max": 65535,
                                                 "required": true
@@ -331,8 +300,8 @@
                                                                                     "required": true,
                                                                                     "enum": [
                                                                                         {
-                                                                                            "value": "oikos",
-                                                                                            "description": "oikos"
+                                                                                            "value": "gptwol",
+                                                                                            "description": "gptwol"
                                                                                         }
                                                                                     ]
                                                                                 }
@@ -405,7 +374,7 @@
                                                                                         {
                                                                                             "variable": "priority",
                                                                                             "label": "Priority (Optional)",
-                                                                                            "description": "Indicates in which order Compose connects the service's containers to its networks.",
+                                                                                            "description": "Indicates in which order Compose connects the service\u2019s containers to its networks.",
                                                                                             "schema": {
                                                                                                 "type": "int",
                                                                                                 "null": true
@@ -429,10 +398,10 @@
                             {
                                 "variable": "host_network",
                                 "label": "Host Network",
-                                "description": "Bind to the host network. It's recommended to keep this disabled.\n",
+                                "description": "Bind to the host network. You might disable this if you use a custom docker network.\n",
                                 "schema": {
                                     "type": "boolean",
-                                    "default": false
+                                    "default": true
                                 }
                             }
                         ]
@@ -446,9 +415,8 @@
                         "type": "dict",
                         "attrs": [
                             {
-                                "variable": "data",
-                                "label": "Data Storage",
-                                "description": "Storage for  database and application data.",
+                                "variable": "db",
+                                "label": "DB Storage",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -506,7 +474,7 @@
                                                             "type": "string",
                                                             "required": true,
                                                             "hidden": true,
-                                                            "default": "data"
+                                                            "default": "db"
                                                         }
                                                     },
                                                     {
@@ -590,9 +558,8 @@
                                 }
                             },
                             {
-                                "variable": "backups",
-                                "label": "Backups Storage",
-                                "description": "Storage for automated backups.",
+                                "variable": "cron",
+                                "label": "Cron Storage",
                                 "schema": {
                                     "type": "dict",
                                     "attrs": [
@@ -650,7 +617,7 @@
                                                             "type": "string",
                                                             "required": true,
                                                             "hidden": true,
-                                                            "default": "backups"
+                                                            "default": "cron"
                                                         }
                                                     },
                                                     {
@@ -899,7 +866,10 @@
                                                                                 true
                                                                             ]
                                                                         ],
-                                                                        "attrs": []
+                                                                        "attrs": [],
+                                                                        "$ref": [
+                                                                            "normalize/acl"
+                                                                        ]
                                                                     }
                                                                 }
                                                             ]
@@ -1056,8 +1026,8 @@
                                                             "required": true,
                                                             "enum": [
                                                                 {
-                                                                    "value": "oikos",
-                                                                    "description": "oikos"
+                                                                    "value": "gptwol",
+                                                                    "description": "gptwol"
                                                                 }
                                                             ]
                                                         }
@@ -1087,7 +1057,7 @@
                                         {
                                             "variable": "cpus",
                                             "label": "CPUs",
-                                            "description": "CPUs limit for Oikos.",
+                                            "description": "CPUs limit for GPTWOL.",
                                             "schema": {
                                                 "type": "int",
                                                 "default": 2,
@@ -1097,7 +1067,7 @@
                                         {
                                             "variable": "memory",
                                             "label": "Memory (in MB)",
-                                            "description": "Memory limit for Oikos.",
+                                            "description": "Memory limit for GPTWOL.",
                                             "schema": {
                                                 "type": "int",
                                                 "default": 4096,
@@ -1112,28 +1082,25 @@
                 }
             ]
         },
-        "readme": "<h1>Oikos</h1> <p><a href=\"https://github.com/ulsklyc/oikos\">Oikos</a> is a self-hosted, privacy-focused family planner. It bundles a shared calendar, tasks, shopping lists, meal planning, notes, contacts and budgeting into a single fast PWA \u2014 no cloud, no tracking.</p>",
+        "readme": "<h1>GPTWOL</h1> <p><a href=\"https://github.com/Misterbabou/gptwol\">GPTWOL</a> - Simple Wake/Sleep On LAN Docker GUI</p>",
         "changelog": null,
         "chart_metadata": {
-            "app_version": "0.83.1",
+            "app_version": "7.1.5",
             "capabilities": [],
             "categories": [
-                "productivity"
+                "networking"
             ],
-            "changelog_url": "https://github.com/ulsklyc/oikos/blob/main/CHANGELOG.md",
-            "date_added": "2026-06-04",
-            "description": "Oikos is a self-hosted, privacy-focused family planner with calendar, tasks, shopping lists, meal planning, notes, contacts and budgeting.",
-            "home": "https://github.com/ulsklyc/oikos",
+            "changelog_url": "https://github.com/Misterbabou/gptwol/releases",
+            "date_added": "2026-07-02",
+            "description": "Simple Wake/Sleep On LAN Docker GUI",
+            "home": "https://github.com/Misterbabou/gptwol",
             "host_mounts": [],
-            "icon": "https://media.sys.truenas.net/apps/oikos/icons/icon.png",
+            "icon": "https://media.sys.truenas.net/apps/gptwol/icons/icon.png",
             "keywords": [
-                "family",
-                "planner",
-                "calendar",
-                "productivity"
+                "wol"
             ],
-            "lib_version": "2.3.6",
-            "lib_version_hash": "5067fd69a830797f96075fe2fe08aa41e2ec08d7c94cf5c6d6256690be7e06ae",
+            "lib_version": "2.3.8",
+            "lib_version_hash": "cd75c897a1e8fef54b5bd00d0d8849f240bc50db2ef650eccc0ee74f3b2b2dc1",
             "maintainers": [
                 {
                     "email": "dev@truenas.com",
@@ -1141,31 +1108,25 @@
                     "url": "https://www.truenas.com/"
                 }
             ],
-            "name": "oikos",
+            "name": "gptwol",
             "run_as_context": [
                 {
-                    "description": "Container [oikos] can run as any non-root user and group.",
+                    "description": "Container [gptwol] can run as any non-root user and group.",
                     "gid": 568,
                     "group_name": "Host group is [apps]",
                     "uid": 568,
                     "user_name": "Host user is [apps]"
                 }
             ],
-            "screenshots": [
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot1.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot2.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot3.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot4.png",
-                "https://media.sys.truenas.net/apps/oikos/screenshots/screenshot5.png"
-            ],
+            "screenshots": [],
             "sources": [
-                "https://apps.truenas.com/catalog/oikos_community/",
-                "https://github.com/ulsklyc/oikos",
-                "https://github.com/ulsklyc/oikos/pkgs/container/oikos"
+                "https://apps.truenas.com/catalog/gptwol_community/",
+                "https://github.com/Misterbabou/gptwol",
+                "https://hub.docker.com/r/misterbabou/gptwol"
             ],
-            "title": "Oikos (Deprecated)",
+            "title": "GPTWOL",
             "train": "community",
-            "version": "1.0.24"
+            "version": "1.0.0"
         }
     }
 }
